@@ -1,11 +1,11 @@
 {
-  "name": "Criminus",
-  "short_name": "Criminus",
-  "description": "Criminus, an anti-crime software",
+  "name": "LawGorithm",
+  "short_name": "LawGorithm",
+  "description": "AI-powered legal assistance and emergency dispatch app",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#000000",
+  "theme_color": "#ff3b30",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
@@ -20,4 +20,4 @@
       "purpose": "any maskable"
     }
   ]
-} 
+}

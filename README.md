@@ -14,7 +14,7 @@ Leverages AI to identify and warn users about potential scams, fraudulent activi
 
 Uses mobile sensors (such as accelerometers and gyroscopes) to detect sudden movements, falls, or distress signals. If unusual activity is detected, it can automatically alert designated guardians or emergency contacts.
 
-- Can be extended for **women’s safety** by integrating voice commands, SOS triggers, and real-time location tracking.
+- Can be extended for **women's safety** by integrating voice commands, SOS triggers, and real-time location tracking.
 
 ### 🚨 Emergency Dispatch AI
 
@@ -42,7 +42,7 @@ Provides easy access to **legal resources, rights, and laws** in a simplified an
 
 An AI-powered chatbot that offers guidance on **legal matters, victim support, and general counseling**.
 
-- Provides insights into legal procedures, emotional support, and recommended next steps based on the user’s concerns.
+- Provides insights into legal procedures, emotional support, and recommended next steps based on the user's concerns.
 
 ### 📢 Crime Reporting
 
@@ -74,6 +74,29 @@ A **comprehensive collection of safety guides, emergency contacts, legal documen
   <img src="public/assets/screenshot3.png" width="30%" alt="Settings" />
 </div>
 
+## 📱 Progressive Web App (PWA)
+
+LawGorithm is built as a Progressive Web App, which means you can:
+
+- **Install it on your device** - Add to your home screen for quick access
+- **Use it offline** - Access certain features without an internet connection
+- **Fast loading** - Optimized for quick startup and smooth performance
+- **Automatic updates** - Always get the latest features without manual updates
+
+### How to Install:
+
+#### On Mobile:
+
+1. Open the app in your mobile browser
+2. Tap the "Add to Home Screen" or "Install" button in your browser menu
+3. Follow the prompts to install the app
+
+#### On Desktop:
+
+1. Open the app in Chrome, Edge, or other supporting browsers
+2. Look for the install icon in the address bar
+3. Click "Install" to add it to your desktop
+
 ## 🛠️ Technologies Used
 
 - [Next.js](https://nextjs.org/) - React framework for building the UI
@@ -81,6 +104,7 @@ A **comprehensive collection of safety guides, emergency contacts, legal documen
 - [React](https://reactjs.org/) - Frontend library for component-based architecture
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Custom styling for a sleek user interface
 - [Speech Recognition API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) - Voice input capabilities for emergency situations
+- [next-pwa](https://github.com/shadowwalker/next-pwa) - Progressive Web App support for Next.js
 
 ## 🚀 Getting Started
 
@@ -123,16 +147,27 @@ A **comprehensive collection of safety guides, emergency contacts, legal documen
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
+6. To build for production with PWA features:
+
+   ```bash
+   npm run build
+   npm run start
+   ```
+
 ## 🧩 Project Structure
 
 ```
 LawGorithm/
 ├── public/             # Static assets
+│   ├── icons/          # PWA icons
+│   ├── manifest.json   # PWA manifest file
+│   └── sw.js           # Service worker
 ├── src/                # Source code
 │   ├── app/            # Next.js app router
 │   │   ├── api/        # API routes
 │   │   ├── components/ # Shared components
 │   │   ├── dispatch/   # Emergency dispatch feature
+│   │   ├── offline/    # Offline page
 │   │   └── frontend/   # Frontend components
 │   └── utils/          # Utility functions
 └── ...                 # Config files

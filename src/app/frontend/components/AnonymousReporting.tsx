@@ -215,7 +215,7 @@ const AnonymousReporting = () => {
           </>
         )}
       </div>
-      <h4 style={{ color: "#84a9c0", fontSize: "16px" }}>
+      <h4 style={{ color: "#ff5151", fontSize: "16px" }}>
         Add other attachements
       </h4>
       {/* Media controls */}
@@ -231,11 +231,11 @@ const AnonymousReporting = () => {
               >
                 <path fill="none" d="M0 0h24v24H0z" />
                 <path
-                  fill="#84a9c0"
+                  fill="#ff5151"
                   d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 2a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm6.5-11v-1h-13v1h13zm-1 1a1 1 0 0 0-1-1h-10a1 1 0 0 0-1 1v8a8 8 0 0 0 4 6.92V20h4v-2.08A8 8 0 0 0 17.5 7z"
                 />
               </svg>
-              <span>Camera</span>
+              <span style={{ color: "#ff5151" }}>Camera</span>
             </div>
           </label>
           <input
@@ -256,18 +256,19 @@ const AnonymousReporting = () => {
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
+                color="#ff5151"
               >
                 <path fill="none" d="M0 0h24v24H0z" />
                 <path
-                  fill="#84a9c0"
+                  fill="#ff5151"
                   d="M12 15c1.66 0 3-1.34 3-3V6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V6z"
                 />
                 <path
-                  fill="#84a9c0"
+                  fill="#ff5151"
                   d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-2.08c3.39-.49 6-3.39 6-6.92h-2z"
                 />
               </svg>
-              <span>Audio</span>
+              <span style={{ color: "#ff5151" }}>Audio</span>
             </div>
           ) : (
             <div className="icon-button recording" onClick={stopRecording}>
@@ -278,7 +279,7 @@ const AnonymousReporting = () => {
                 height="24"
               >
                 <path fill="none" d="M0 0h24v24H0z" />
-                <path fill="red" d="M6 6h12v12H6z" />
+                <path fill="#ff5151" d="M6 6h12v12H6z" />
               </svg>
               <span>Stop</span>
             </div>
@@ -304,11 +305,11 @@ const AnonymousReporting = () => {
               >
                 <path fill="none" d="M0 0h24v24H0z" />
                 <path
-                  fill="#84a9c0"
+                  fill="#ff5151"
                   d="M22 16V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"
                 />
               </svg>
-              <span>Gallery</span>
+              <span style={{ color: "#ff5151" }}>Gallery</span>
             </div>
           </label>
           <input
@@ -349,13 +350,14 @@ const AnonymousReporting = () => {
       )}
       {/* Description input */}
       <div className="description-container">
-        <h4 style={{ color: "#84a9c0", fontSize: "16px" }}>Description</h4>
+        <h4 style={{ color: "#ff5151", fontSize: "16px" }}>Description</h4>
         <div className="text-input-container">
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Text"
             rows={4}
+            style={{ backgroundColor: "#9b9b9b26" }}
           />
         </div>
       </div>

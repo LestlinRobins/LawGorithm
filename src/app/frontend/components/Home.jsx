@@ -3,7 +3,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import ChildSafety from "./ChildSafety";
+import AnonymousReporting from "./AnonymousReporting";
 import LeadPrediction from "./LeadPrediction";
+import SettingsPage from "./SettingsPage";
 import Heatmap from "./Heatmap";
 import Image from "next/image";
 import { Search, Loader, User, MapPin, PhoneCall, Target } from "react-feather";
@@ -12,6 +14,8 @@ export function Home() {
   const [showChildSafety, setShowChildSafety] = useState(false);
   const [showLeadPrediction, setShowLeadPrediction] = useState(false);
   const [showHeatmap, setShowHeatmap] = useState(false);
+  const [showAnonymousReporting, setShowAnonymousReporting] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
   const router = useRouter();
@@ -40,11 +44,18 @@ export function Home() {
   const handleHeatmapClick = () => {
     setShowHeatmap(true);
   };
-
+  const handleSettingsClick = () => {
+    setShowSettings(true);
+  };
+  const handleAnonymousReportingClick = () => {
+    setShowAnonymousReporting(true);
+  };
   const handleBackClick = () => {
     setShowChildSafety(false);
     setShowLeadPrediction(false);
     setShowHeatmap(false);
+    setShowAnonymousReporting(false);
+    setShowSettings(false);
   };
 
   const handleRedirect = (path) => {
@@ -67,7 +78,7 @@ export function Home() {
                 display: "flex",
                 alignItems: "center",
                 padding: "8px 16px",
-                background: "#121212",
+                background: "#9b9b9b26",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer",
@@ -102,7 +113,7 @@ export function Home() {
                 display: "flex",
                 alignItems: "center",
                 padding: "8px 16px",
-                background: "#121212",
+                background: "#9b9b9b26",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer",
@@ -137,7 +148,7 @@ export function Home() {
                 display: "flex",
                 alignItems: "center",
                 padding: "8px 16px",
-                background: "#121212",
+                background: "#9b9b9b26",
                 border: "none",
                 borderRadius: "4px",
                 cursor: "pointer",
@@ -163,6 +174,41 @@ export function Home() {
           </div>
           <Heatmap />
         </div>
+      ) : showAnonymousReporting ? (
+        <div>
+          <div className="back-button-container" style={{ margin: "20px 0" }}>
+            <button
+              onClick={handleBackClick}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                padding: "8px 16px",
+                background: "#9b9b9b26",
+                border: "none",
+                borderRadius: "4px",
+                cursor: "pointer",
+                fontWeight: "bold",
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ marginRight: "8px" }}
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Back to Home
+            </button>
+          </div>
+          <AnonymousReporting />
+        </div>
       ) : (
         <>
           <div className="announcement-section">
@@ -176,13 +222,13 @@ export function Home() {
             >
               <div
                 style={{
-                  backgroundColor: "#5190a5",
+                  backgroundColor: "#d1d1d12f",
                   width: "100%",
-                  borderRadius: "20px",
+                  borderRadius: "10px",
                   padding: "clamp(12px, 4vw, 20px)",
                   display: "flex",
                   flexDirection: "column",
-                  color: "#333",
+                  color: "white",
                   fontFamily: "Arial, sans-serif",
                   boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
                   height: "100%",
@@ -207,7 +253,7 @@ export function Home() {
                     <svg
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
-                      style={{ width: "100%", height: "100%", fill: "#2a4045" }}
+                      style={{ width: "100%", height: "100%", fill: "#ff5151" }}
                     >
                       <path d="M12,2L4,5v6.09c0,5.05,3.41,9.76,8,10.91c4.59-1.15,8-5.86,8-10.91V5L12,2z M15,15.5h-6v-1.4c0-2,4-3.1,6-3.1V15.5z M12,9c1.1,0,2-0.9,2-2s-0.9-2-2-2s-2,0.9-2,2S10.9,9,12,9z" />
                     </svg>
@@ -223,7 +269,7 @@ export function Home() {
                         fontSize: "clamp(18px, 5vw, 24px)",
                         fontWeight: "bold",
                         margin: "0 0 clamp(6px, 2vw, 10px) 0",
-                        color: "#333",
+                        color: "#ff5151",
                       }}
                     >
                       Aluva Cyber Police
@@ -237,6 +283,7 @@ export function Home() {
                         overflowWrap: "break-word",
                         hyphens: "auto",
                         maxWidth: "100%",
+                        color: "#999999",
                       }}
                     >
                       Online Fraud scam investigation. Apprehend the thief and
@@ -342,7 +389,7 @@ export function Home() {
 
               <div
                 className="feature-card"
-                onClick={() => handleRedirect("/anonymousReport")}
+                onClick={handleAnonymousReportingClick}
                 style={{ cursor: "pointer" }}
               >
                 <div className="feature-icon">

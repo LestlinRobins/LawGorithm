@@ -1,5 +1,5 @@
 .info-page {
-  background-color: #121212;
+  background-color: #12121200;
   color: #ffffff;
   min-height: 100vh;
   padding: 16px;
@@ -9,12 +9,14 @@
 .info-header {
   margin-bottom: 16px;
   padding: 8px 0;
+  color: #ff4848;
 }
 
 .info-header h2 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin: 0;
-  color: white;
+  font-weight: 800;
+  color: #ff4848;
 }
 
 .tab-container {
@@ -43,7 +45,7 @@
 
 .tab-button.active {
   color: white;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgb(255, 106, 106);
 }
 .tab-button:active {
   border: none;
@@ -64,7 +66,7 @@
 .crime-item {
   display: flex;
   align-items: center;
-  background-color: #1e1e1e;
+  background-color: #9b9b9b26;
   border-radius: 8px;
   padding: 10px;
   cursor: pointer;
@@ -88,7 +90,7 @@
   margin: 0 0 4px 0;
   font-size: 1rem;
   font-weight: 500;
-  color: white;
+  color: #ff4848;
 }
 
 .crime-info p {
@@ -98,7 +100,7 @@
 }
 
 .crime-details {
-  background-color: #2a3742;
+  background-color: #9b9b9b26;
   border-radius: 8px;
   padding: 20px;
 }
@@ -106,16 +108,16 @@
 .back-button {
   background: none;
   border: none;
-  color: #84a9c0;
+  color: #ff4848;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.6rem;
   padding: 0;
   margin-bottom: 16px;
   display: block;
 }
 
 .crime-details h2 {
-  color: #84a9c0;
+  color: #ff4848;
   margin-top: 0;
   margin-bottom: 16px;
   font-size: 1.3rem;
@@ -123,6 +125,7 @@
 
 .crime-details p {
   margin: 8px 0;
+  color: #939393;
   line-height: 1.4;
 }
 
@@ -130,10 +133,11 @@
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid #444;
+  color: #939393;
 }
 
 .additional-info h3 {
   font-size: 1.1rem;
-  color: #84a9c0;
+  color: #ff4848;
   margin-bottom: 12px;
 }

@@ -7,7 +7,7 @@
 }
 
 .child-safety-container {
-  background-color: #121212;
+  background-color: #12121200;
   color: white;
   font-family: "DM Sans", sans-serif;
   min-height: 100vh;
@@ -73,7 +73,7 @@
 
 /* Map Card */
 .map-card {
-  background-color: #1e1e1e;
+  background-color: rgba(155, 155, 155, 0.15);
   border-radius: 12px;
   padding: 0.7rem;
   margin-bottom: 1rem;
@@ -114,7 +114,7 @@
 .location-name {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #9bbcff;
+  color: #ff5151;
 }
 
 .location-detail {
@@ -124,8 +124,8 @@
 
 .fencing-button {
   width: 100%;
-  background-color: #3a3a3a;
-  color: #9bbcff;
+  background-color: #ff5151;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   padding: 0.5rem;
@@ -137,7 +137,7 @@
 
 /* Status Section */
 .status-section {
-  background-color: #1e1e1e;
+  background-color: rgba(155, 155, 155, 0.15);
   border-radius: 12px;
   padding: 0.7rem;
   margin-bottom: 1rem;
@@ -169,7 +169,7 @@
 
 /* Voice Mail Section */
 .voicemail-section {
-  background-color: #1e1e1e;
+  background-color: rgba(155, 155, 155, 0.15);
   border-radius: 12px;
   padding: 0.7rem;
   margin-bottom: 1rem;

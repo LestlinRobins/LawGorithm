@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
 import React, { useState, useRef, useEffect } from "react";
 import { ArrowUpCircle } from "react-feather";
 import { useResponsive } from "../hooks/useResponsive";
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from "react-markdown";
+import "../../App.css";
 
 const Search = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -15,7 +16,7 @@ const Search = () => {
   const suggestionsRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { isMobile, isTablet, isDesktop, isLargeDesktop } = useResponsive();
-  
+
   // Chatbot state
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,19 +38,22 @@ const Search = () => {
   // Generate suggestions based on search query
   const getSuggestions = () => {
     if (!searchQuery) return [];
-    
+
     return [
       `How to prevent ${searchQuery}?`,
       `Latest news about ${searchQuery}`,
-      `Report ${searchQuery} incident`
+      `Report ${searchQuery} incident`,
     ];
   };
-  
+
   const suggestions = getSuggestions();
 
   // Initialize the model only on client-side
   useEffect(() => {
-    if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_GOOGLE_API_KEY) {
+    if (
+      typeof window !== "undefined" &&
+      process.env.NEXT_PUBLIC_GOOGLE_API_KEY
+    ) {
       modelRef.current = new ChatGoogleGenerativeAI({
         modelName: "gemini-2.0-flash-lite",
         maxOutputTokens: 2048,
@@ -90,14 +94,14 @@ const Search = () => {
     if (e.key === "ArrowDown") {
       e.preventDefault();
       if (selectedSuggestion < suggestions.length - 1) {
-        setSelectedSuggestion(prev => prev + 1);
+        setSelectedSuggestion((prev) => prev + 1);
       }
     }
     // Arrow up
     else if (e.key === "ArrowUp") {
       e.preventDefault();
       if (selectedSuggestion > 0) {
-        setSelectedSuggestion(prev => prev - 1);
+        setSelectedSuggestion((prev) => prev - 1);
       }
     }
     // Enter key
@@ -117,11 +121,12 @@ const Search = () => {
   // Scroll selected suggestion into view
   useEffect(() => {
     if (selectedSuggestion >= 0 && suggestionsRef.current) {
-      const suggestionElements = suggestionsRef.current.querySelectorAll('.suggestion-item');
+      const suggestionElements =
+        suggestionsRef.current.querySelectorAll(".suggestion-item");
       if (suggestionElements[selectedSuggestion]) {
         suggestionElements[selectedSuggestion].scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest'
+          behavior: "smooth",
+          block: "nearest",
         });
       }
     }
@@ -134,10 +139,13 @@ const Search = () => {
 
   const handleBlur = (e) => {
     // Prevent blur if clicking on a suggestion
-    if (suggestionsRef.current && suggestionsRef.current.contains(e.relatedTarget)) {
+    if (
+      suggestionsRef.current &&
+      suggestionsRef.current.contains(e.relatedTarget)
+    ) {
       return;
     }
-    
+
     if (!searchQuery) {
       setIsFocused(false);
     }
@@ -164,18 +172,18 @@ const Search = () => {
     if (searchQuery.trim()) {
       try {
         // Add user message to chat
-        const userMessage = { role: 'user', content: searchQuery };
-        setMessages(prev => [...prev, userMessage]);
-        
+        const userMessage = { role: "user", content: searchQuery };
+        setMessages((prev) => [...prev, userMessage]);
+
         // Store the query before clearing the input
         const currentQuery = searchQuery;
-        
+
         // Clear input and show loading state
         setSearchQuery("");
         setIsLoading(true);
         setIsStreaming(true);
         setStreamingMessage("");
-        
+
         // Check if model is initialized
         if (!modelRef.current) {
           modelRef.current = new ChatGoogleGenerativeAI({
@@ -185,42 +193,40 @@ const Search = () => {
             streaming: true,
           });
         }
-        
+
         // Track the complete response
         let completeResponse = "";
-        
+
         // Get streaming response from the model
-        const streamingResponse = await modelRef.current.invoke(
-          currentQuery,
-          {
-            callbacks: [
-              {
-                handleLLMNewToken(token) {
-                  completeResponse += token;
-                  setStreamingMessage(prev => prev + token);
-                },
+        const streamingResponse = await modelRef.current.invoke(currentQuery, {
+          callbacks: [
+            {
+              handleLLMNewToken(token) {
+                completeResponse += token;
+                setStreamingMessage((prev) => prev + token);
               },
-            ],
-          }
-        );
-        
+            },
+          ],
+        });
+
         // Small delay to ensure streaming is complete
-        await new Promise(resolve => setTimeout(resolve, 100));
-        
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
         // When streaming is complete, add the full message to the chat history
         // Use the tracked complete response instead of the state variable
-        const aiMessage = { role: 'assistant', content: completeResponse };
-        setMessages(prev => [...prev, aiMessage]);
+        const aiMessage = { role: "assistant", content: completeResponse };
+        setMessages((prev) => [...prev, aiMessage]);
         setStreamingMessage("");
         setIsStreaming(false);
       } catch (error) {
         console.error("Error getting response:", error);
         // Add error message to chat
-        const errorMessage = { 
-          role: 'assistant', 
-          content: "I'm sorry, I encountered an error processing your request. Please try again." 
+        const errorMessage = {
+          role: "assistant",
+          content:
+            "I'm sorry, I encountered an error processing your request. Please try again.",
         };
-        setMessages(prev => [...prev, errorMessage]);
+        setMessages((prev) => [...prev, errorMessage]);
         setStreamingMessage("");
         setIsStreaming(false);
       } finally {
@@ -235,21 +241,42 @@ const Search = () => {
       <ReactMarkdown
         components={{
           // Root div wrapper with className
-          root: ({ node, ...props }) => <div className="markdown-content" {...props} />,
+          root: ({ node, ...props }) => (
+            <div className="markdown-content" {...props} />
+          ),
           p: ({ node, ...props }) => <p className="mb-2" {...props} />,
-          h1: ({ node, ...props }) => <h1 className="text-xl font-bold mb-2" {...props} />,
-          h2: ({ node, ...props }) => <h2 className="text-lg font-bold mb-2" {...props} />,
-          h3: ({ node, ...props }) => <h3 className="text-md font-bold mb-1" {...props} />,
-          ul: ({ node, ...props }) => <ul className="list-disc pl-5 mb-2" {...props} />,
-          ol: ({ node, ...props }) => <ol className="list-decimal pl-5 mb-2" {...props} />,
+          h1: ({ node, ...props }) => (
+            <h1 className="text-xl font-bold mb-2" {...props} />
+          ),
+          h2: ({ node, ...props }) => (
+            <h2 className="text-lg font-bold mb-2" {...props} />
+          ),
+          h3: ({ node, ...props }) => (
+            <h3 className="text-md font-bold mb-1" {...props} />
+          ),
+          ul: ({ node, ...props }) => (
+            <ul className="list-disc pl-5 mb-2" {...props} />
+          ),
+          ol: ({ node, ...props }) => (
+            <ol className="list-decimal pl-5 mb-2" {...props} />
+          ),
           li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-          a: ({ node, ...props }) => <a className="text-blue-400 underline" target="_blank" rel="noopener noreferrer" {...props} />,
-          code: ({ node, inline, ...props }) => 
-            inline ? 
-              <code className="bg-gray-800 px-1 rounded text-sm" {...props} /> : 
+          a: ({ node, ...props }) => (
+            <a
+              className="text-blue-400 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              {...props}
+            />
+          ),
+          code: ({ node, inline, ...props }) =>
+            inline ? (
+              <code className="bg-gray-800 px-1 rounded text-sm" {...props} />
+            ) : (
               <pre className="bg-gray-800 p-2 rounded my-2 overflow-x-auto">
                 <code className="text-sm" {...props} />
               </pre>
+            ),
         }}
       >
         {content}
@@ -268,27 +295,32 @@ const Search = () => {
   }
 
   return (
-    <div className="search-page">
+    <div style={{ backgroundColor: "transparent" }} className="search-page">
       <a href="#search-form" className="skip-to-content">
         Skip to chat form
       </a>
-      
-      <div className={`search-container ${isDesktop || isLargeDesktop ? 'desktop-layout' : ''}`}>
+
+      <div
+        style={{ backgroundColor: "transparent" }}
+        className={`search-container ${
+          isDesktop || isLargeDesktop ? "desktop-layout" : ""
+        }`}
+      >
         <h2 className="search-title">Chat with J.Ethicat</h2>
-        
+
         {messages.length === 0 && !isStreaming && (
-          <div className={`recent-searches ${isFocused ? 'minimized' : ''}`}>
+          <div className={`recent-searches ${isFocused ? "minimized" : ""}`}>
             <h3 className="recent-searches-title">Suggested Questions</h3>
             {recentSearches.map((search, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="search-item"
                 onClick={() => handleSearchItemClick(search)}
                 tabIndex={0}
                 role="button"
                 aria-label={`Ask about ${search}`}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     handleSearchItemClick(search);
                   }
                 }}
@@ -324,7 +356,7 @@ const Search = () => {
         )}
 
         {messages.length === 0 && !isStreaming && (
-          <div className={`mascot-container ${isFocused ? 'minimized' : ''}`}>
+          <div className={`mascot-container ${isFocused ? "minimized" : ""}`}>
             <div className="mascot">
               <div className="mascot-image-container">
                 <div className="j-ethical-mascot"></div>
@@ -333,27 +365,28 @@ const Search = () => {
             </div>
           </div>
         )}
-        
+
         {/* Chat messages */}
         {(messages.length > 0 || isStreaming) && (
           <div className="chat-messages">
             {messages.map((message, index) => (
-              <div 
-                key={index} 
-                className={`message ${message.role === 'user' ? 'user-message' : 'ai-message'}`}
+              <div
+                key={index}
+                className={`message ${
+                  message.role === "user" ? "user-message" : "ai-message"
+                }`}
               >
                 <div className="message-avatar">
-                  {message.role === 'user' ? '👤' : '🤖'}
+                  {message.role === "user" ? "👤" : "🤖"}
                 </div>
                 <div className="message-content">
-                  {message.role === 'user' ? 
-                    message.content : 
-                    renderMessageContent(message.content)
-                  }
+                  {message.role === "user"
+                    ? message.content
+                    : renderMessageContent(message.content)}
                 </div>
               </div>
             ))}
-            
+
             {/* Streaming message */}
             {isStreaming && streamingMessage && (
               <div className="message ai-message">
@@ -364,7 +397,7 @@ const Search = () => {
                 </div>
               </div>
             )}
-            
+
             {/* Loading indicator (only shown before streaming starts) */}
             {isLoading && !streamingMessage && (
               <div className="message ai-message">
@@ -419,7 +452,11 @@ const Search = () => {
               </div>
               <input
                 type="text"
-                placeholder={isMobile ? "Ask me anything..." : "What would you like to know about crime prevention?"}
+                placeholder={
+                  isMobile
+                    ? "Ask me anything..."
+                    : "What would you like to know about crime prevention?"
+                }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={handleFocus}
@@ -433,8 +470,8 @@ const Search = () => {
                 aria-expanded={isFocused && searchQuery ? "true" : "false"}
                 disabled={isLoading}
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="send-button"
                 aria-label="Send message"
                 disabled={isLoading || !searchQuery.trim()}
@@ -446,8 +483,8 @@ const Search = () => {
         </form>
 
         {isFocused && searchQuery && (
-          <div 
-            className="search-suggestions" 
+          <div
+            className="search-suggestions"
             ref={suggestionsRef}
             id="search-suggestions"
             role="listbox"
@@ -455,23 +492,37 @@ const Search = () => {
             <h3 className="suggestions-title">Suggested Questions</h3>
             <div className="suggestions-list">
               {suggestions.map((suggestion, index) => (
-                <div 
-                  key={index} 
-                  className={`suggestion-item ${selectedSuggestion === index ? 'selected' : ''}`}
+                <div
+                  key={index}
+                  className={`suggestion-item ${
+                    selectedSuggestion === index ? "selected" : ""
+                  }`}
                   onClick={() => handleSuggestionClick(suggestion)}
                   onMouseEnter={() => setSelectedSuggestion(index)}
                   tabIndex={0}
                   role="option"
                   aria-selected={selectedSuggestion === index}
                   onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
+                    if (e.key === "Enter" || e.key === " ") {
                       handleSuggestionClick(suggestion);
                     }
                   }}
                 >
                   <div className="suggestion-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5v14M5 12h14"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </div>
                   <span className="suggestion-text">{suggestion}</span>
@@ -481,8 +532,11 @@ const Search = () => {
           </div>
         )}
       </div>
-      
+
       <style jsx>{`
+        .search-page {
+          background-color: rgba(13, 17, 23, 0);
+        }
         .search-page-loading {
           display: flex;
           justify-content: center;
@@ -491,7 +545,7 @@ const Search = () => {
           font-size: 1.2rem;
           color: rgba(255, 255, 255, 0.7);
         }
-        
+
         .chat-messages {
           display: flex;
           flex-direction: column;
@@ -504,23 +558,23 @@ const Search = () => {
           background-color: rgba(255, 255, 255, 0.05);
           backdrop-filter: blur(10px);
         }
-        
+
         .message {
           display: flex;
           gap: 12px;
           max-width: 80%;
           animation: fadeIn 0.3s ease-out;
         }
-        
+
         .user-message {
           align-self: flex-end;
           flex-direction: row-reverse;
         }
-        
+
         .ai-message {
           align-self: flex-start;
         }
-        
+
         .message-avatar {
           width: 36px;
           height: 36px;
@@ -532,7 +586,7 @@ const Search = () => {
           font-size: 18px;
           flex-shrink: 0;
         }
-        
+
         .message-content {
           padding: 12px 16px;
           border-radius: 18px;
@@ -540,22 +594,22 @@ const Search = () => {
           backdrop-filter: blur(5px);
           line-height: 1.5;
         }
-        
+
         .user-message .message-content {
           background-color: rgba(59, 130, 246, 0.2);
           border-bottom-right-radius: 4px;
         }
-        
+
         .ai-message .message-content {
           background-color: rgba(255, 255, 255, 0.15);
           border-bottom-left-radius: 4px;
         }
-        
+
         .typing-indicator {
           display: flex;
           gap: 4px;
         }
-        
+
         .typing-indicator span {
           width: 8px;
           height: 8px;
@@ -563,15 +617,15 @@ const Search = () => {
           background-color: rgba(255, 255, 255, 0.6);
           animation: bounce 1.5s infinite;
         }
-        
+
         .typing-indicator span:nth-child(2) {
           animation-delay: 0.2s;
         }
-        
+
         .typing-indicator span:nth-child(3) {
           animation-delay: 0.4s;
         }
-        
+
         .cursor-blink {
           display: inline-block;
           width: 2px;
@@ -581,21 +635,28 @@ const Search = () => {
           animation: blink 1s step-end infinite;
           opacity: 0.7;
         }
-        
+
         @keyframes blink {
-          0%, 100% { opacity: 0; }
-          50% { opacity: 1; }
+          0%,
+          100% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 1;
+          }
         }
-        
+
         @keyframes bounce {
-          0%, 60%, 100% {
+          0%,
+          60%,
+          100% {
             transform: translateY(0);
           }
           30% {
             transform: translateY(-4px);
           }
         }
-        
+
         @keyframes fadeIn {
           from {
             opacity: 0;
@@ -606,30 +667,30 @@ const Search = () => {
             transform: translateY(0);
           }
         }
-        
+
         /* Markdown styles */
         :global(.markdown-content) {
           word-break: break-word;
         }
-        
+
         :global(.markdown-content p) {
           margin-bottom: 0.75rem;
         }
-        
+
         :global(.markdown-content p:last-child) {
           margin-bottom: 0;
         }
-        
+
         :global(.markdown-content ul),
         :global(.markdown-content ol) {
           margin-left: 1.5rem;
           margin-bottom: 0.75rem;
         }
-        
+
         :global(.markdown-content li) {
           margin-bottom: 0.25rem;
         }
-        
+
         :global(.markdown-content pre) {
           background-color: rgba(0, 0, 0, 0.3);
           padding: 0.75rem;
@@ -637,7 +698,7 @@ const Search = () => {
           overflow-x: auto;
           margin: 0.75rem 0;
         }
-        
+
         :global(.markdown-content code) {
           font-family: monospace;
           font-size: 0.9em;
@@ -645,7 +706,7 @@ const Search = () => {
           padding: 0.1rem 0.3rem;
           border-radius: 0.25rem;
         }
-        
+
         :global(.markdown-content pre code) {
           background-color: transparent;
           padding: 0;

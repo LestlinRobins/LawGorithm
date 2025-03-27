@@ -75,7 +75,7 @@ const styles = `
     padding: 16px;
     max-width: 500px;
     margin: 0 auto;
-    background-color: #121212;
+    background-color: rgba(13, 17, 23, 0);
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
@@ -197,7 +197,7 @@ const styles = `
   .legend {
     margin-top: 16px;
     padding: 12px;
-    background-color: #2a2a2a;
+    background-color: rgba(155, 155, 155, 0.15);
     border-radius: 8px;
   }
 
@@ -252,7 +252,7 @@ export default function CrimeHeatmap() {
         key={crime.id}
         position={{
           lat: crime.location.lat || 10.0555555,
-          lng: crime.location.lng || 76.6191
+          lng: crime.location.lng || 76.6191,
         }}
         icon={{
           path: "M-10,0a10,10 0 1,0 20,0a10,10 0 1,0 -20,0",

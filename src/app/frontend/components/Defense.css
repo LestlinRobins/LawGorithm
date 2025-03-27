@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #121212;
+  background-color: #9b9b9b00;
   color: #fff;
 }
 
@@ -20,7 +20,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background-color: #121212;
+  background-color: #9b9b9b00;
   position: relative;
 }
 
@@ -65,14 +65,14 @@ body {
   display: flex;
   align-items: center;
   padding: 16px 20px;
-  background-color: #121212;
+  background-color: #12121200;
 }
 
 .back-button {
   background: none;
   border: none;
-  color: #fff;
-  font-size: 24px;
+  color: #ff4848;
+  font-size: 18px;
   cursor: pointer;
   padding: 0;
   margin-right: 16px;
@@ -83,6 +83,7 @@ body {
   flex: 1;
   padding: 0 20px 20px 20px;
   overflow-y: auto;
+  background-color: #9b9b9b00;
 }
 
 /* Hide the original section title in detail views */
@@ -92,7 +93,7 @@ body {
 
 /* Detail view specific styles */
 .detail-content {
-  background-color: #1e1e1e;
+  background-color: #9b9b9b26;
   border-radius: 12px;
   padding: 20px;
   margin-top: 8px;
@@ -102,6 +103,7 @@ body {
   font-weight: 600;
   margin: 12px 0 14px 3px; /* Add left margin to align with content after back button */
   display: flex;
+  color: #ff4848;
 }
 
 /* For detail view pages where we want the title next to the back button */
@@ -136,7 +138,7 @@ body {
 }
 
 .resource-card {
-  background-color: #1e1e1e;
+  background-color: #9b9b9b26;
   border-radius: 12px;
   padding: 20px;
   cursor: pointer;
@@ -156,18 +158,19 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background-color: #2a2a2a;
+  background-color: #9b9b9b26;
 }
 
 .resource-title {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 8px;
+  color: #ff4848;
 }
 
 .resource-description {
   font-size: 14px;
-  color: #aaa;
+  color: #afacac;
 }
 
 /* Detail view */
@@ -177,12 +180,11 @@ body {
 }
 
 .detail-content {
-  background-color: #1e1e1e;
+  background-color: #9b9b9b26;
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 20px;
 }
-
 .detail-content h3 {
   font-size: 18px;
   margin-bottom: 16px;
@@ -209,7 +211,7 @@ body {
 
 /* Progress tracker */
 .progress-tracker {
-  background-color: #1e1e1e;
+  background-color: #9b9b9b26;
   border-radius: 12px;
   padding: 20px;
 }
@@ -251,7 +253,7 @@ body {
   display: flex;
   align-items: flex-start;
   padding: 12px;
-  background-color: #2a2a2a;
+  background-color: #9b9b9b26;
   border-radius: 8px;
 }
 
@@ -293,7 +295,7 @@ body {
 .emergency-tabs {
   display: flex;
   overflow-x: auto;
-  background-color: #121212;
+  background-color: #12121200;
   padding: 5px 20px;
   margin-bottom: 10px;
   -webkit-overflow-scrolling: touch;
@@ -325,11 +327,11 @@ body {
 .emergency-tab.active::after {
   content: "";
   position: absolute;
-  bottom: -5px;
+  bottom: 0px;
   left: 15%;
   width: 70%;
   height: 3px;
-  background-color: #1e88e5;
+  background-color: rgb(159, 27, 43);
   border-radius: 1.5px;
 }
 
@@ -345,13 +347,13 @@ body {
   align-items: center;
   padding: 15px;
   margin-bottom: 10px;
-  background-color: #1e1e1e;
+  background-color: #9b9b9b26;
   border-radius: 12px;
   transition: background-color 0.2s;
 }
 
 .contact-item:hover {
-  background-color: #262626;
+  background-color: #893c3c2a;
 }
 
 .contact-icon {
@@ -359,7 +361,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #2d4356;
+  background-color: #7d3638;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -370,7 +372,7 @@ body {
   display: block;
   width: 20px;
   height: 20px;
-  background-color: rgb(152, 204, 255);
+  background-color: rgb(255, 183, 191);
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z'/%3E%3C/svg%3E");
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z'/%3E%3C/svg%3E");
   mask-size: contain;
@@ -404,7 +406,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #2d4356;
+  background-color: #7d3638;
   border: none;
   display: flex;
   justify-content: center;
@@ -414,7 +416,7 @@ body {
 }
 
 .call-button:hover {
-  background-color: #166bbf;
+  background-color: #bd0e0e;
 }
 
 .call-icon::before {
@@ -422,7 +424,7 @@ body {
   display: block;
   width: 20px;
   height: 20px;
-  background-color: rgb(166, 207, 249);
+  background-color: rgb(255, 183, 191);
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z'/%3E%3C/svg%3E");
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z'/%3E%3C/svg%3E");
   mask-size: contain;

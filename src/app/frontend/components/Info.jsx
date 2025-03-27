@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Info.css";
+import { Pocket } from "react-feather";
 
 const Info = () => {
   const [activeTab, setActiveTab] = useState("Violent");
@@ -239,7 +240,7 @@ const Info = () => {
                 <svg width="24" height="24" viewBox="0 0 24 24">
                   <path
                     d="M12,2L1,21H23L12,2M12,6L19.53,19H4.47L12,6"
-                    fill="#84a9c0"
+                    fill="#ff4848"
                   />
                 </svg>
               </div>

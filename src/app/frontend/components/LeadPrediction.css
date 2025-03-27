@@ -84,12 +84,12 @@
     flex-direction: row;
     align-items: flex-start;
   }
-  
+
   .user-manual {
     flex: 1;
     max-width: 400px;
   }
-  
+
   .quick-prompts {
     flex: 2;
   }
@@ -365,7 +365,7 @@
   margin-bottom: 12px;
 }
 
-.markdown-content ul, 
+.markdown-content ul,
 .markdown-content ol {
   margin-bottom: 12px;
   padding-left: 24px;
@@ -375,9 +375,9 @@
   margin-bottom: 4px;
 }
 
-.markdown-content h1, 
-.markdown-content h2, 
-.markdown-content h3, 
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
 .markdown-content h4 {
   margin-top: 16px;
   margin-bottom: 8px;
@@ -515,7 +515,7 @@
 }
 
 .mermaid-container .label {
-  font-family: 'Inter', sans-serif !important;
+  font-family: "Inter", sans-serif !important;
   font-size: 14px !important;
 }
 
@@ -609,7 +609,7 @@
   left: 0;
   right: 0;
   padding: 16px 0;
-  background: linear-gradient(to top, rgba(18, 18, 18, 1) 60%, rgba(18, 18, 18, 0));
+  background: transparent;
   z-index: 10;
 }
 
@@ -658,6 +658,7 @@
   align-items: center;
   padding: 8px 8px 8px 16px;
   z-index: 1;
+  background-color: #68686821;
 }
 
 .input-icon {
@@ -743,7 +744,8 @@
   transition: background-color 0.2s ease;
 }
 
-.suggestion-item:hover, .suggestion-item.selected {
+.suggestion-item:hover,
+.suggestion-item.selected {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -757,7 +759,8 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -770,20 +773,20 @@
   .content-container {
     flex-direction: column;
   }
-  
+
   .side-panel {
     width: 100%;
     order: -1;
   }
-  
+
   .message {
     max-width: 95%;
   }
-  
+
   .quick-prompts-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .mermaid svg {
     min-width: 300px;
   }
@@ -794,7 +797,7 @@
     max-width: 1400px;
     margin: 0 auto;
   }
-  
+
   .ai-message .message-content {
     max-width: 100%;
   }
@@ -842,15 +845,15 @@
     min-height: 200px;
     max-height: 300px;
   }
-  
+
   .structured-section {
     padding: 12px;
   }
-  
+
   .evidence-items {
     grid-template-columns: 1fr;
   }
-  
+
   .recommendation-actions {
     flex-direction: column;
     align-items: flex-start;
@@ -1283,7 +1286,7 @@
 }
 
 .timeline-events:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 8px;
   top: 0;
@@ -1302,7 +1305,7 @@
 }
 
 .timeline-event:before {
-  content: '';
+  content: "";
   position: absolute;
   left: -24px;
   top: 0;
@@ -1589,4 +1592,4 @@
 
 .global-fullscreen-content .label {
   font-size: 18px !important;
-} 
+}

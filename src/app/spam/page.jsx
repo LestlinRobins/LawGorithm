@@ -185,7 +185,7 @@ Content: ${link.scrapedContent || "N/A"}
     <div className={styles.spamContainer}>
       {/* Header */}
       <div className={styles.header}>
-        <h1>Sathyameva Jayadhe</h1>
+        <h1>LawGorithm</h1>
         <div
           style={{
             width: "3rem",

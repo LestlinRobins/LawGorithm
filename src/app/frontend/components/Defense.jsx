@@ -43,7 +43,7 @@ const Defense = () => {
     );
   };
 
-  return <div className="app-container">{renderContent()}</div>;
+  return <div className="in-app-container">{renderContent()}</div>;
 };
 
 // Header component with user info and back button
@@ -313,7 +313,7 @@ const DetailView = ({ subcategory, goBack }) => {
     // For other categories, render information content
     return (
       <div className="detail-content">
-        <p>Detailed information about {subcategory.title} goes here.</p>
+        {/* <p>Detailed information about {subcategory.title} goes here.</p> */}
         {subcategory.category === "emergency" && (
           <div className="emergency-contacts">
             <h4>Important Numbers</h4>

@@ -1,0 +1,115 @@
+/* Settings Page Styles */
+.settings-container {
+  background-color: #000000f4;
+  color: #ffffff;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.settings-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #500202 1%, black 35%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.settings-title {
+  color: #ff3b30;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  margin-left: 30px;
+}
+
+.profile-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #333;
+  position: relative;
+  overflow: hidden;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23555555"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>');
+  background-size: 60%;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  border: 3px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.settings-tabs {
+  display: flex;
+  border-bottom: 1px solid #333;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  padding: 10px 0;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-button.active {
+  color: #ff3b30;
+  font-weight: bold;
+  border-bottom: 2px solid #ff3b30;
+}
+
+/* .tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #ff3b30;
+  transition: left 0.3s ease;
+} */
+
+.settings-tab-content {
+  position: relative;
+  z-index: 1;
+}
+
+.settings-option {
+  background-color: #9b9b9b26;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.settings-option h3 {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+  color: #fff;
+}
+
+.settings-option p {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+  line-height: 1.4;
+}

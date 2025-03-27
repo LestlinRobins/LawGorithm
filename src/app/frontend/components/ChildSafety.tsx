@@ -15,10 +15,31 @@ const ChildSafety = () => {
   const [incident, setIncident] = useState(null);
   const [audioUrl, setAudioUrl] = useState(null);
   const [loadingState, setLoadingState] = useState("initializing");
+  const [currentLocation, setCurrentLocation] = useState(null);
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!,
   });
+
+  useEffect(() => {
+    // Get current location
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setCurrentLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+          setLoadingState("location error: " + error.message);
+        }
+      );
+    } else {
+      setLoadingState("geolocation not supported");
+    }
+  }, []);
 
   useEffect(() => {
     async function fetchLatestIncident() {
@@ -70,6 +91,21 @@ const ChildSafety = () => {
     })} ${date.getFullYear()}`;
   };
 
+  const getMapCenter = () => {
+    if (incident && incident.latitude && incident.longitude) {
+      return {
+        lat: incident.latitude,
+        lng: incident.longitude,
+      };
+    }
+    return (
+      currentLocation || {
+        lat: 10.0522, // Default to MACE if no location available
+        lng: 76.6199,
+      }
+    );
+  };
+
   return (
     <div className="child-safety-container">
       {/* Map Card */}
@@ -78,22 +114,10 @@ const ChildSafety = () => {
           {isLoaded && (
             <GoogleMap
               mapContainerStyle={{ width: "100%", height: "156px" }}
-              center={{
-                lat: incident
-                  ? Number(incident.latitude) || 10.0555555
-                  : 10.0555555,
-                lng: incident ? Number(incident.longitude) || 76.6191 : 76.6191,
-              }}
+              center={getMapCenter()}
               zoom={15}
             >
-              {incident && incident.latitude && incident.longitude && (
-                <Marker
-                  position={{
-                    lat: Number(incident.latitude),
-                    lng: Number(incident.longitude),
-                  }}
-                />
-              )}
+              <Marker position={getMapCenter()} />
             </GoogleMap>
           )}
           {/* {incident && (
@@ -148,7 +172,11 @@ const ChildSafety = () => {
             controls
             src={audioUrl}
             className="standard-audio-player"
-            style={{ width: "100%", marginTop: "10px" }}
+            style={{
+              width: "100%",
+              filter:
+                "sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%)",
+            }}
             onError={(e) => {
               console.error("Audio error:", e);
               const audioElement = e.target as HTMLAudioElement;

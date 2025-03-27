@@ -63,7 +63,7 @@ body {
 
 .user-name {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 800;
   color: #ff5151;
 }
 
@@ -134,7 +134,7 @@ body {
 }
 
 .announcement-card {
-  background-color: #5c8ca0;
+  background-color: #38383800;
   border-radius: 12px;
   height: 150px;
   width: 100%;
@@ -163,7 +163,7 @@ body {
   gap: 16px;
   padding: 12px;
   border-radius: 14px;
-  background-color: #2222229f;
+  background-color: #9b9b9b26;
   width: 100%; /* Ensure full width */
 }
 
@@ -216,7 +216,7 @@ body {
   gap: 4px;
   background: none;
   border: none;
-  color: #7a7a7a;
+  color: #ff5151;
   cursor: pointer;
   padding: 8px;
   width: 20%;
@@ -231,7 +231,7 @@ body {
 }
 
 .tab-button.active {
-  color: #fff;
+  color: #ff5151;
 }
 
 /* Other Tab Styles - Fixed width issue */
@@ -240,6 +240,8 @@ body {
 .report-container,
 .defense-container {
   padding: 16px 0;
+  background-color: rgba(13, 17, 23, 0);
+
   width: 100%; /* Ensure full width */
 }
 
@@ -371,6 +373,7 @@ body {
 .defense-container {
   width: 100%;
   padding: 4px;
+  margin-bottom: 20px;
 }
 
 /* Consistent content width for index.css */
@@ -542,7 +545,7 @@ body {
   min-height: 75vh;
   display: flex;
   flex-direction: column;
-  background-color: #121212;
+  background-color: rgba(13, 17, 23, 0);
   position: relative;
   overflow: hidden;
 }
@@ -600,7 +603,7 @@ body {
   padding: 8px 10px;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: #121212 !important;
+  background-color: #a0a0a01f !important;
   border-bottom: 1px solid #253238;
   border-radius: 8px;
 }
@@ -1083,6 +1086,7 @@ body {
 
   .app-content {
     margin-top: 70px;
+    background-color: rgba(13, 17, 23, 0);
     padding: 24px;
     padding-left: 100px; /* Space for the sidebar navigation */
   }
@@ -1119,6 +1123,7 @@ body {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
+    background-color: rgba(13, 17, 23, 0);
   }
 
   /* Two-column layout for feature cards on desktop */
@@ -1139,7 +1144,16 @@ body {
     padding: 6px 10px;
   }
 }
+.chat-page {
+  background-color: rgba(13, 17, 23, 0);
+}
 
+.search-page {
+  background-color: rgba(13, 17, 23, 0);
+}
+.jsx-6f62651342695680 .search-page {
+  background-color: rgba(13, 17, 23, 0);
+}
 /* Large Desktop */
 @media screen and (min-width: 1440px) {
   .app-container {
@@ -1151,7 +1165,8 @@ body {
   }
 
   .app-content {
-    max-width: 1400px;
+    max-width: 1440px;
+    background-color: rgba(13, 17, 23, 0);
   }
 
   /* Three-column layout for feature cards on large desktop */
@@ -1170,6 +1185,7 @@ body {
   .app-content {
     margin: 0;
     padding: 0;
+    background-color: rgba(13, 17, 23, 0);
   }
 
   body {

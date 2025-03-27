@@ -1,7 +1,5 @@
 # LawGorithm
 
-![LawGorithm Logo](public/assets/logo.png)
-
 LawGorithm is an innovative mobile application designed to bridge the gap between legal resources and public safety. This app leverages artificial intelligence to provide timely information, emergency assistance, and legal guidance to users in need.
 
 ## 🔑 Key Features
@@ -66,14 +64,6 @@ A **comprehensive collection of safety guides, emergency contacts, legal documen
 
 - Designed to **educate and empower users** with knowledge to stay safe.
 
-## 📱 Screenshots
-
-<div style="display: flex; justify-content: space-between;">
-  <img src="public/assets/screenshot1.png" width="30%" alt="Home Screen" />
-  <img src="public/assets/screenshot2.png" width="30%" alt="Emergency Assistance" />
-  <img src="public/assets/screenshot3.png" width="30%" alt="Settings" />
-</div>
-
 ## 📱 Progressive Web App (PWA)
 
 LawGorithm is built as a Progressive Web App, which means you can:
@@ -105,6 +95,10 @@ LawGorithm is built as a Progressive Web App, which means you can:
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Custom styling for a sleek user interface
 - [Speech Recognition API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition) - Voice input capabilities for emergency situations
 - [next-pwa](https://github.com/shadowwalker/next-pwa) - Progressive Web App support for Next.js
+- [Supabase](https://supabase.com/) - Open source Firebase alternative for backend and database
+- [React Feather](https://feathericons.com/) - Simply beautiful open source icons
+- [Google Cloud Platform](https://cloud.google.com/) - Cloud infrastructure and services
+- [Google Maps Platform](https://developers.google.com/maps) - Location services and mapping capabilities
 
 ## 🚀 Getting Started
 
@@ -119,7 +113,7 @@ LawGorithm is built as a Progressive Web App, which means you can:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/LawGorithm.git
+   git clone https://github.com/LestlinRobins/LawGorithm.git
    cd LawGorithm
    ```
 

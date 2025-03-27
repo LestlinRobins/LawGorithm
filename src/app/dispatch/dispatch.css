@@ -1,0 +1,645 @@
+/* Dispatch Page Responsive Styles */
+.dispatch-container {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: calc(100vh - 120px); /* Adjust for header and footer */
+  overflow: hidden;
+}
+
+.phone-container {
+  background-color: rgba(30, 30, 30, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid rgba(80, 80, 80, 0.4);
+  max-height: 100%;
+}
+
+.call-status-bar {
+  background-color: #2c5282;
+  color: white;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.conversation-container {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 200px;
+  max-height: calc(100vh - 250px);
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.message-bubble {
+  padding: 12px;
+  border-radius: 12px;
+  max-width: 85%;
+  word-break: break-word;
+  width: fit-content;
+}
+
+.user-message {
+  background-color: #2c5282;
+  color: white;
+  align-self: flex-end;
+}
+
+.assistant-message {
+  background-color: rgba(80, 80, 80, 0.4);
+  color: white;
+  align-self: flex-start;
+}
+
+.system-message {
+  background-color: rgba(80, 80, 80, 0.4);
+  color: white;
+  align-self: center;
+  text-align: center;
+}
+
+.audio-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.audio-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.text-input-container {
+  padding: 12px;
+  border-top: 1px solid rgba(80, 80, 80, 0.4);
+  width: 100%;
+}
+
+.text-input-form {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.text-input {
+  flex: 1;
+  background-color: rgba(60, 60, 60, 0.5);
+  border: none;
+  padding: 10px 16px;
+  color: white;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.send-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #2c5282;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+  min-width: 80px;
+  justify-content: center;
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+}
+
+.send-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.voice-settings-panel {
+  background-color: rgba(40, 40, 40, 0.9);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(80, 80, 80, 0.4);
+  position: absolute;
+  z-index: 10;
+  width: 90%;
+  max-width: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.voice-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(80, 80, 80, 0.4);
+}
+
+.voice-settings-header h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ff5151;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #ff5151;
+  cursor: pointer;
+}
+
+.voice-settings-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.setting-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+.voice-select {
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgba(60, 60, 60, 0.5);
+  border: 1px solid rgba(80, 80, 80, 0.4);
+  color: white;
+  width: 100%;
+}
+
+.slider {
+  width: 100%;
+  background-color: rgba(60, 60, 60, 0.5);
+  height: 6px;
+  border-radius: 3px;
+  appearance: none;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+.reset-button {
+  font-size: 12px;
+  color: #ff5151;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.test-voice-button {
+  padding: 10px;
+  background-color: #2c5282;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.waveform-container {
+  background-color: rgba(44, 82, 130, 0.3);
+  border-radius: 12px;
+  padding: 12px;
+  align-self: flex-end;
+  max-width: 85%;
+  border: 1px solid rgba(44, 82, 130, 0.5);
+}
+
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.recording-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ff5151;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+.waveform {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.waveform-bars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 100%;
+  width: 100%;
+}
+
+.waveform-bar {
+  background-color: #ff5151;
+  width: 4px;
+  border-radius: 2px;
+  animation: pulse 1s infinite;
+}
+
+.transcript-text {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.live-transcript {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.transcript-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.speaking-indicator {
+  background-color: rgba(80, 80, 80, 0.4);
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  max-width: 85%;
+}
+
+.speaking-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.speaking-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ff5151;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+.error-message {
+  background-color: rgba(180, 50, 50, 0.3);
+  color: #ffcccc;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(180, 50, 50, 0.5);
+  width: 100%;
+}
+
+.error-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.empty-state,
+.calling-state,
+.call-ended-state {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+}
+
+.call-button,
+.end-call-button,
+.record-button,
+.stop-button,
+.new-call-button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: #ff5151;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.call-icon,
+.end-icon,
+.mic-icon,
+.stop-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.end-call-button {
+  color: #ff5151;
+}
+
+.record-button {
+  color: #ff5151;
+}
+
+.stop-button {
+  color: #ff9951;
+}
+
+.processing-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ff5151;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.status-indicator {
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scaleY(0.7);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0.7);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff5151;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff5151;
+  cursor: pointer;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .conversation-container {
+    padding: 12px;
+    gap: 10px;
+    min-height: 200px;
+    max-height: calc(100vh - 220px);
+  }
+
+  .voice-settings-panel {
+    width: 95%;
+    padding: 14px;
+  }
+
+  .text-input {
+    padding: 8px 14px;
+  }
+
+  .send-button {
+    padding: 8px 12px;
+    min-width: 70px;
+  }
+
+  .waveform {
+    height: 50px;
+  }
+
+  .voice-settings-content {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dispatch-container {
+    gap: 12px;
+    height: calc(100vh - 100px);
+  }
+
+  .conversation-container {
+    padding: 8px;
+    gap: 8px;
+    min-height: 150px;
+    max-height: calc(100vh - 180px);
+  }
+
+  .message-bubble {
+    padding: 10px;
+    max-width: 92%;
+    font-size: 14px;
+  }
+
+  .voice-settings-panel {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .voice-settings-content {
+    gap: 12px;
+  }
+
+  .voice-settings-header h3 {
+    font-size: 15px;
+  }
+
+  .setting-group {
+    gap: 6px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  .voice-select {
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  .text-input-container {
+    padding: 8px;
+  }
+
+  .text-input {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .send-button {
+    padding: 8px;
+    min-width: 40px;
+  }
+
+  .send-button span {
+    display: none;
+  }
+
+  .waveform-container {
+    padding: 10px;
+    max-width: 92%;
+  }
+
+  .waveform {
+    height: 40px;
+    margin-bottom: 6px;
+  }
+
+  .waveform-bar {
+    width: 3px;
+  }
+
+  .transcript-text,
+  .live-transcript,
+  .transcript-placeholder {
+    font-size: 13px;
+  }
+
+  .speaking-indicator {
+    padding: 8px;
+    gap: 8px;
+    max-width: 92%;
+  }
+
+  .error-message {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .empty-state,
+  .calling-state,
+  .call-ended-state {
+    padding: 15px 10px;
+    font-size: 14px;
+  }
+
+  .call-button,
+  .end-call-button,
+  .record-button,
+  .stop-button,
+  .new-call-button {
+    padding: 6px 4px;
+    font-size: 10px;
+  }
+
+  .call-icon,
+  .end-icon,
+  .mic-icon,
+  .stop-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .spinner {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Small screens and orientation fixes */
+@media (max-width: 360px), (max-height: 640px) {
+  .conversation-container {
+    min-height: 120px;
+    max-height: calc(100vh - 160px);
+  }
+
+  .message-bubble {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .waveform {
+    height: 30px;
+  }
+
+  .voice-settings-panel {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+
+/* Landscape orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .dispatch-container {
+    height: calc(100vh - 90px);
+  }
+
+  .conversation-container {
+    max-height: calc(100vh - 150px);
+  }
+
+  .voice-settings-panel {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}

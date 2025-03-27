@@ -973,6 +973,7 @@ body {
   .search-page {
     max-width: 90%;
     margin: 0 auto;
+    min-width: 768px;
   }
 
   .search-container {
@@ -982,11 +983,21 @@ body {
   .search-wrapper {
     max-width: 500px;
   }
+
+  .app-container {
+    min-width: 768px;
+  }
+  .app-header {
+    min-width: 768px;
+  }
+  .app-content {
+    min-width: 768px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .search-page {
-    max-width: 900px;
+    min-width: 1024px;
     margin: 0 auto;
   }
 
@@ -1035,7 +1046,7 @@ body {
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .app-container {
-    max-width: 90%;
+    min-width: 768px;
   }
 
   .tab-navigation {
@@ -1060,6 +1071,7 @@ body {
 @media screen and (min-width: 1024px) {
   .app-container {
     max-width: 1200px;
+    min-width: 1024px;
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -1155,17 +1167,37 @@ body {
   background-color: rgba(13, 17, 23, 0);
 }
 /* Large Desktop */
+@media screen and (min-width: 1920px) {
+  .app-container {
+    min-width: 1920px;
+    width: 100vw;
+  }
+  .app-header {
+    min-width: 1920px;
+  }
+  .app-content {
+    min-width: 1920px;
+    background-color: rgba(13, 17, 23, 0);
+    width: 1920px;
+  }
+  body {
+    min-width: 1920px;
+  }
+}
 @media screen and (min-width: 1440px) {
   .app-container {
-    max-width: 1400px;
+    min-width: 1440px;
+    width: 100vw;
   }
 
   .app-header {
-    max-width: 1400px;
+    min-width: 1440px;
+    width: 100vw;
   }
 
   .app-content {
-    max-width: 1440px;
+    min-width: 1440px;
+    width: 100vw;
     background-color: rgba(13, 17, 23, 0);
   }
 
@@ -1174,7 +1206,30 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
+@media screen and (min-width: 2160px) {
+  .app-container {
+    min-width: 2160px;
+    width: 100vw;
+  }
+  .app-header {
+    min-width: 2160px;
+  }
+  .app-content {
+    min-width: 2160px;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .app-container {
+    min-width: 2560px;
+    width: 100vw;
+  }
+  .app-header {
+    min-width: 2560px;
+  }
+  .app-content {
+    min-width: 2560px;
+  }
+}
 /* Print styles */
 @media print {
   .tab-navigation,

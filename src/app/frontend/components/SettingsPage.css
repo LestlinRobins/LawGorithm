@@ -113,3 +113,25 @@
   margin: 0;
   line-height: 1.4;
 }
+@media (min-width: 768px) {
+  .settings-container {
+    min-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .settings-container {
+    min-width: 1024px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .settings-container {
+    min-width: 1440px;
+  }
+}
+@media (min-width: 1920px) {
+  .settings-container {
+    min-width: 1920px;
+  }
+}

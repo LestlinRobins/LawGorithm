@@ -603,8 +603,8 @@ body {
   padding: 8px 10px;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: #a0a0a01f !important;
-  border-bottom: 1px solid #253238;
+  background-color: #a0a0a027 !important;
+  border-bottom: 1px solid #8100008d;
   border-radius: 8px;
 }
 
@@ -1285,15 +1285,15 @@ body {
 
 .suggestion-item.selected {
   background-color: rgba(60, 60, 60, 0.8);
-  outline: 2px solid #0a84ff;
+  outline: 2px solid #000000;
 }
 
 .suggestion-item:focus {
-  outline: 2px solid #0a84ff;
+  outline: 2px solid #15171a;
 }
 
 .search-item:focus {
-  outline: 2px solid #0a84ff;
+  outline: 2px solid #9c0e0e;
   background-color: rgba(60, 60, 60, 0.8) !important;
 }
 

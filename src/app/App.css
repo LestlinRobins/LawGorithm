@@ -655,8 +655,8 @@ body {
 }
 
 .mascot-image-container {
-  width: 250px;
-  height: 180px;
+  width: 200px !important;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -665,13 +665,12 @@ body {
 }
 
 .mascot-container.minimized .mascot-image-container {
-  width: 80px;
-  height: 80px;
+  width: 20px;
+  height: 100px;
 }
-
 .j-ethical-mascot {
-  width: 100%;
-  height: 100%;
+  width: 150%;
+  height: 150%;
   background-image: url("./frontend/assets/image.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -679,9 +678,9 @@ body {
 }
 
 .mascot-name {
-  margin-top: 12px;
+  margin-top: 20px;
   font-size: 16px;
-  color: var(--text-secondary);
+  color: rgb(252, 74, 74);
   font-weight: 500;
   transition: all 0.3s ease;
 }
